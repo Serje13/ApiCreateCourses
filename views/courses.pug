@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    h1 Courses
+    a.btn.btn-primary(href="/api/courses/add") Add New Course
+    table.table.table-striped
+        thead
+            tr
+                th Course Id
+                th Course
+                th
+                th
+        tbody
+            each course in courses
+                tr
+                    td= course.id
+                    td= course.name
+                    td(style="width: 50px;"): a(href="/api/courses/edit/" + course.id)
+                        span.glyphicon.glyphicon-pencil
+                    td(style="width: 50px;"): a(href="/api/courses/delete/" + course.id)
+                        span.glyphicon.glyphicon-remove
